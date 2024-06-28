@@ -30,15 +30,17 @@ pipeline {
           // Inject GitHub credentials into the environment
           withCredentials([usernamePassword(credentialsId: 'github', usernameVariable: 'GITHUB_USERNAME', passwordVariable: 'GITHUB_TOKEN')]) {
             // Replace the contents of the existing .npmrc file
-            sh """
-              echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > .npmrc
-              echo "@salman-eng1:registry=https://npm.pkg.github.com/salman-eng1" >> .npmrc
-            """
+                    sh '''
+                        echo "Creating .npmrc file..."
+                        echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > .npmrc
+                        echo "@salman-eng1:registry=https://npm.pkg.github.com/salman-eng1" >> .npmrc
+                        echo "File content:"
+                        cat .npmrc
+                    '''
             // Checkout the Git repository
             git branch: 'master', credentialsId: 'github', url: 'https://github.com/salman-eng1/marketplace-review.git'
           }
           // Install npm dependencies
-          sh 'cat .npmrc '
         }
       }
     }
