@@ -29,7 +29,10 @@ pipeline {
         script {
           // Inject GitHub credentials into the environment
           withCredentials([usernamePassword(credentialsId: 'github', usernameVariable: 'GITHUB_USERNAME', passwordVariable: 'GITHUB_TOKEN')]) {
-            // Replace the contents of the existing .npmrc file
+
+            // Checkout the Git repository
+            git branch: 'master', credentialsId: 'github', url: 'https://github.com/salman-eng1/marketplace-review.git'
+                        // Replace the contents of the existing .npmrc file
                     sh '''
                         echo "Creating .npmrc file..."
                         echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > .npmrc
@@ -37,8 +40,6 @@ pipeline {
                         echo "File content:"
                         cat .npmrc
                     '''
-            // Checkout the Git repository
-            git branch: 'master', credentialsId: 'github', url: 'https://github.com/salman-eng1/marketplace-review.git'
           }
           // Install npm dependencies
           sh 'npm install'
