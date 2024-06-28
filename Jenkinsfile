@@ -41,6 +41,7 @@ pipeline {
             git branch: 'master', credentialsId: 'github', url: 'https://github.com/salman-eng1/marketplace-review.git'
           }
           // Install npm dependencies
+          sh 'npm install'
         }
       }
     }
