@@ -28,7 +28,7 @@ pipeline {
       steps {
         script {
           // Inject GitHub credentials into the environment
-          withCredentials([usernamePassword(credentialsId: 'github',usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+          withCredentials([usernamePassword(credentialsId: 'github', usernameVariable: 'GITHUB_USERNAME', passwordVariable: 'GITHUB_TOKEN')]) {
             // Replace the contents of the existing .npmrc file
             sh """
               echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > .npmrc
