@@ -43,6 +43,8 @@ pipeline {
           }
           // Install npm dependencies
           sh 'npm install'
+          sh 'cat .npmrc'
+          sh 'rm .npmrc'
         }
       }
     }
