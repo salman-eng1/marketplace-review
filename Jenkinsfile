@@ -25,7 +25,7 @@ pipeline {
             cleanWs()
         }
     }
-    stage("Prepare Environemnt")
+    stage("Prepare Environemnt"){
     steps{
       git branch: 'master', credentialsId: 'github', url: 'https://github.com/salman-eng1/marketplace-review.git'
       sh 'npm install'
