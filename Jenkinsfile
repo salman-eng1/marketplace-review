@@ -175,4 +175,4 @@ withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: 'minik
       }
     }
   }
-}}
+}
