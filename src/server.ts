@@ -16,7 +16,6 @@ import { appRoutes } from '@review/routes';
 import { createConnection } from '@review/queues/connection';
 import { Channel } from 'amqplib';
 
-
 const SERVER_PORT = 4007;
 const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'reviewServer', 'debug');
 let reviewChannel: Channel;
@@ -63,7 +62,7 @@ const routesMiddleware = (app: Application): void => {
 };
 
 const startQueues = async (): Promise<void> => {
-  reviewChannel = await createConnection() as Channel;
+  reviewChannel = (await createConnection()) as Channel;
 };
 
 const startElasticSearch = (): void => {

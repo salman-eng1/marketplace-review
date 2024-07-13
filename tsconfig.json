@@ -20,17 +20,12 @@
     "allowSyntheticDefaultImports": true,
     "pretty": true,
     "resolveJsonModule": true,
-    "plugins": [
-      { "transform": "typescript-transform-paths" },
-      { "transform": "typescript-transform-paths", "afterDeclarations": true }
-    ],
+    "plugins": [{ "transform": "typescript-transform-paths" }, { "transform": "typescript-transform-paths", "afterDeclarations": true }],
     "paths": {
-      "@review/*": ["src/*"],  
+      "@review/*": ["src/*"],
       "@salman-eng1/marketplace-shared/*": ["./node_modules/@salman-eng1/marketplace-shared/*"]
-         
     }
   },
   "include": ["src"],
   "exclude": ["node_modules"]
 }
-

@@ -12,7 +12,7 @@ export async function createConnection(): Promise<Channel | undefined> {
 
     log.info('Review server connected to queue successfully...');
     closeConnection(channel, connection);
-   return channel;
+    return channel;
   } catch (error) {
     log.log('error', 'ReviewService error createConnection() method:', error);
   }
