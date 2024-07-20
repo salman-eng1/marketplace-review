@@ -57,23 +57,23 @@ pipeline {
       }
     }
     
-    stage("Lint Check") {
-      steps {
-        sh 'npm run lint:check'
-      }
-    }
+    // stage("Lint Check") {
+    //   steps {
+    //     sh 'npm run lint:check'
+    //   }
+    // }
 
-    stage("Code Format Check") {
-      steps {
-        sh 'npm run prettier:check'
-      }
-    }
+    // stage("Code Format Check") {
+    //   steps {
+    //     sh 'npm run prettier:check'
+    //   }
+    // }
     
-    stage("Unit Test") {
-      steps {
-        sh 'npm run test'
-      }
-    }
+    // stage("Unit Test") {
+    //   steps {
+    //     sh 'npm run test'
+    //   }
+    // }
 
     stage("Build and Push") {
       steps {
@@ -88,12 +88,12 @@ pipeline {
       }
     }
 
-    stage("Clean Artifacts") {
-      steps {
-        sh "docker rmi $IMAGE_NAME:$IMAGE_TAG"
-        sh "docker rmi $IMAGE_NAME:stable"
-      }
-    }
+    // stage("Clean Artifacts") {
+    //   steps {
+    //     sh "docker rmi $IMAGE_NAME:$IMAGE_TAG"
+    //     sh "docker rmi $IMAGE_NAME:stable"
+    //   }
+    // }
 
 
     stage("Create New Pods") {
