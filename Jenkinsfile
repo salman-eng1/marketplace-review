@@ -98,7 +98,7 @@ pipeline {
 
     stage("Create New Pods") {
       steps {
-withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'jenkins-k8s-token', namespace: 'production', serverUrl: 'https://192.168.39.212:8443']]) {
+withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: 'minikube', contextName: 'minikube', credentialsId: 'jenkinscredentials', namespace: 'production', serverUrl: 'https://192.168.39.212:8443']]) {
              script {
             def pods = groovyMethods.findPodsFromName("${namespace}", "${serviceName}")
             for (podName in pods) {
