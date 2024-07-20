@@ -47,13 +47,11 @@ pipeline {
               echo "Creating .npmrc file..."
               echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > .npmrc
               echo "@salman-eng1:registry=https://npm.pkg.github.com/salman-eng1" >> .npmrc
-              echo "File content:"
-              cat .npmrc
             '''
             // Install npm dependencies
             sh 'npm install'
-            sh 'cat .npmrc'
-            sh 'rm .npmrc'
+            // sh 'cat .npmrc'
+            // sh 'rm .npmrc'
           }
         }
       }
