@@ -10,13 +10,13 @@ const pool: Pool = new Pool({
   user: `${config.DATABASE_USER}`,
   password: `${config.DATABASE_PASSWORD}`,
   port: 5432,
-  database: `${config.DATABASE_NAME}`
+  database: `${config.DATABASE_NAME}`,
   ...(config.NODE_ENV !== 'development' && config.CLUSTER_TYPE === 'AWS' && {
     ssl: {
       rejectUnauthorized: false
     }
-});
-});
+})
+ });
 //test
 pool.on('error', (error: Error) => {
   log.log('error', 'pg client error', error);
